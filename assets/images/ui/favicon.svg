@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9a227"/>
+      <stop offset="50%" style="stop-color:#e6c44a"/>
+      <stop offset="100%" style="stop-color:#9a7b1a"/>
+    </linearGradient>
+    <linearGradient id="magicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7b68ee"/>
+      <stop offset="100%" style="stop-color:#9370db"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#1a1a2e"/>
+  
+  <!-- Outer gear ring -->
+  <g fill="url(#goldGrad)">
+    <!-- Gear teeth -->
+    <rect x="29" y="2" width="6" height="8" rx="1"/>
+    <rect x="29" y="54" width="6" height="8" rx="1"/>
+    <rect x="2" y="29" width="8" height="6" rx="1"/>
+    <rect x="54" y="29" width="8" height="6" rx="1"/>
+    
+    <!-- Diagonal teeth -->
+    <rect x="8" y="8" width="6" height="8" rx="1" transform="rotate(45 11 12)"/>
+    <rect x="50" y="8" width="6" height="8" rx="1" transform="rotate(-45 53 12)"/>
+    <rect x="8" y="50" width="6" height="8" rx="1" transform="rotate(-45 11 54)"/>
+    <rect x="50" y="50" width="6" height="8" rx="1" transform="rotate(45 53 54)"/>
+  </g>
+  
+  <!-- Main gear body -->
+  <circle cx="32" cy="32" r="22" fill="url(#goldGrad)" stroke="#9a7b1a" stroke-width="2"/>
+  <circle cx="32" cy="32" r="16" fill="#1a1a2e"/>
+  
+  <!-- Magic crystal center -->
+  <polygon points="32,18 42,32 32,46 22,32" fill="url(#magicGrad)" opacity="0.9"/>
+  
+  <!-- Inner sparkle -->
+  <circle cx="32" cy="32" r="4" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Sparkle effects -->
+  <circle cx="26" cy="26" r="2" fill="#ffffff" opacity="0.4"/>
+  <circle cx="38" cy="28" r="1.5" fill="#ffffff" opacity="0.3"/>
+  <circle cx="30" cy="38" r="1" fill="#ffffff" opacity="0.3"/>
+</svg>

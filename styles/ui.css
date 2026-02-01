@@ -1,0 +1,631 @@
+/* =====================================================
+   BEFIXED - UI Components Stylesheet
+   Inventory, Journal, Settings, Save/Load
+   ===================================================== */
+
+/* =====================================================
+   INVENTORY OVERLAY
+   ===================================================== */
+
+.inventory-content {
+    width: 800px;
+    max-width: 90vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: var(--spacing-lg);
+    min-height: 500px;
+}
+
+.inventory-content .overlay-header {
+    grid-column: 1 / -1;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-panel-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color-muted);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.inventory-slot {
+    aspect-ratio: 1;
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color-muted);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.inventory-slot:hover {
+    border-color: var(--color-primary);
+    background: var(--bg-panel);
+}
+
+.inventory-slot.selected {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.inventory-slot.empty {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.inventory-slot .item-icon {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.inventory-slot .item-quantity {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: var(--font-size-xs);
+    font-weight: bold;
+    color: var(--text-primary);
+    background: var(--bg-dark);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.item-details {
+    padding: var(--spacing-md);
+    background: var(--bg-panel-light);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color-muted);
+}
+
+.item-details .placeholder-text {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.item-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.item-details-content .item-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+}
+
+.item-details-content h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.item-details-content .item-type {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.item-details-content .item-description {
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+/* =====================================================
+   JOURNAL OVERLAY
+   ===================================================== */
+
+.journal-content {
+    width: 700px;
+    max-width: 90vw;
+    min-height: 500px;
+}
+
+.journal-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color-muted);
+    padding-bottom: var(--spacing-sm);
+}
+
+.tab-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: transparent;
+    transition: background var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+}
+
+.tab-btn.active::after {
+    background: var(--color-primary);
+}
+
+.journal-content-area {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+}
+
+/* Story Tab */
+.story-entry {
+    padding: var(--spacing-md);
+    background: var(--bg-panel-light);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    border-left: 3px solid var(--color-primary);
+}
+
+.story-entry .entry-chapter {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.story-entry .entry-title {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.story-entry .entry-summary {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+/* Characters Tab */
+.character-entry {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--bg-panel-light);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.character-entry .character-portrait {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    border: 2px solid var(--border-color-muted);
+}
+
+.character-entry .character-info {
+    flex: 1;
+}
+
+.character-entry .character-name {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.character-entry .character-role {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
+.character-entry .character-description {
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+/* Items Tab */
+.item-entry {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-panel-light);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.item-entry .item-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.item-entry .item-name {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.item-entry .item-count {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* =====================================================
+   SETTINGS OVERLAY
+   ===================================================== */
+
+.settings-content {
+    width: 600px;
+    max-width: 90vw;
+}
+
+.settings-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+}
+
+.settings-section h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color-muted);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.setting-item label {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.setting-item input[type="range"] {
+    flex: 2;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: var(--bg-dark);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.setting-item input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-item .volume-value {
+    width: 50px;
+    text-align: right;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.setting-item select {
+    flex: 2;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color-muted);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+}
+
+.setting-item select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.setting-item.checkbox {
+    justify-content: space-between;
+}
+
+.setting-item input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 48px;
+    height: 24px;
+    background: var(--bg-dark);
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: background var(--transition-fast);
+}
+
+.setting-item input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--text-secondary);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.setting-item input[type="checkbox"]:checked {
+    background: var(--color-primary);
+}
+
+.setting-item input[type="checkbox"]:checked::before {
+    left: 26px;
+    background: var(--bg-darker);
+}
+
+.settings-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color-muted);
+}
+
+/* =====================================================
+   SAVE/LOAD OVERLAY
+   ===================================================== */
+
+.save-load-content {
+    width: 600px;
+    max-width: 90vw;
+}
+
+.save-slots {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+}
+
+.save-slot {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--bg-panel-light);
+    border: 2px solid var(--border-color-muted);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.save-slot:hover {
+    border-color: var(--color-primary);
+    background: var(--bg-panel);
+}
+
+.save-slot.empty {
+    opacity: 0.6;
+}
+
+.save-slot .slot-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+}
+
+.save-slot .slot-info {
+    flex: 1;
+}
+
+.save-slot .slot-chapter {
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.save-slot .slot-date {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.save-slot .slot-playtime {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.save-slot .slot-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.save-slot .slot-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color-muted);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.save-slot .slot-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--text-primary);
+}
+
+.save-slot .slot-btn.delete:hover {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+/* =====================================================
+   PAUSE OVERLAY
+   ===================================================== */
+
+.pause-content {
+    text-align: center;
+    min-width: 300px;
+}
+
+.pause-content h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pause-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* =====================================================
+   CREDITS OVERLAY
+   ===================================================== */
+
+.credits-content {
+    width: 500px;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.credits-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+.credits-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.credits-section h3 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.credits-section p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+/* =====================================================
+   CONFIRMATION DIALOG
+   ===================================================== */
+
+.confirm-dialog {
+    text-align: center;
+    max-width: 400px;
+}
+
+.confirm-dialog .dialog-message {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.confirm-dialog .dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .inventory-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+    
+    .setting-item {
+        flex-wrap: wrap;
+    }
+    
+    .setting-item label {
+        flex-basis: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .setting-item input[type="range"],
+    .setting-item select {
+        flex: 1;
+    }
+    
+    .save-slot {
+        flex-wrap: wrap;
+    }
+    
+    .save-slot .slot-actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: var(--spacing-sm);
+    }
+}

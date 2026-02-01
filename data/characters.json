@@ -1,0 +1,112 @@
+{
+    "characters": [
+        {
+            "id": "player",
+            "name": "The Artificer",
+            "displayName": "You",
+            "role": "Master Repair Artisan",
+            "description": "A skilled craftsperson who inherited the family workshop, combining knowledge of both magical enchantments and mechanical engineering.",
+            "color": "#4a8fa3",
+            "sprites": {
+                "neutral": "assets/images/characters/player_neutral.png",
+                "happy": "assets/images/characters/player_happy.png",
+                "concerned": "assets/images/characters/player_concerned.png",
+                "thinking": "assets/images/characters/player_thinking.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/player_portrait_neutral.png"
+            }
+        },
+        {
+            "id": "cog",
+            "name": "Cog",
+            "displayName": "Cog",
+            "role": "Clockwork Assistant",
+            "description": "A small, helpful automaton that assists around the workshop. Often provides hints and comic relief.",
+            "color": "#c9a227",
+            "sprites": {
+                "neutral": "assets/images/characters/cog_neutral.png",
+                "happy": "assets/images/characters/cog_happy.png",
+                "excited": "assets/images/characters/cog_excited.png",
+                "worried": "assets/images/characters/cog_worried.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/cog_portrait_neutral.png"
+            }
+        },
+        {
+            "id": "elara",
+            "name": "Elara Nightwhisper",
+            "displayName": "Elara",
+            "role": "Mysterious Customer",
+            "description": "An enigmatic figure who brings in the broken automaton that sets the story in motion. Her true identity is shrouded in mystery.",
+            "color": "#7b68ee",
+            "sprites": {
+                "neutral": "assets/images/characters/elara_neutral.png",
+                "serious": "assets/images/characters/elara_serious.png",
+                "hopeful": "assets/images/characters/elara_hopeful.png",
+                "sad": "assets/images/characters/elara_sad.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/elara_portrait_neutral.png"
+            }
+        },
+        {
+            "id": "grimshaw",
+            "name": "Master Grimshaw",
+            "displayName": "Grimshaw",
+            "role": "Rival Artificer",
+            "description": "A competitive craftsman who believes that magic and machinery should never mix. Views the player's methods with suspicion.",
+            "color": "#8b4513",
+            "sprites": {
+                "neutral": "assets/images/characters/grimshaw_neutral.png",
+                "smug": "assets/images/characters/grimshaw_smug.png",
+                "angry": "assets/images/characters/grimshaw_angry.png",
+                "surprised": "assets/images/characters/grimshaw_surprised.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/grimshaw_portrait_neutral.png"
+            }
+        },
+        {
+            "id": "pip",
+            "name": "Pip",
+            "displayName": "Pip",
+            "role": "Apprentice",
+            "description": "An eager young apprentice who wants to learn the craft. Full of enthusiasm but sometimes creates accidental chaos.",
+            "color": "#2e8b57",
+            "sprites": {
+                "neutral": "assets/images/characters/pip_neutral.png",
+                "excited": "assets/images/characters/pip_excited.png",
+                "embarrassed": "assets/images/characters/pip_embarrassed.png",
+                "determined": "assets/images/characters/pip_determined.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/pip_portrait_neutral.png"
+            }
+        },
+        {
+            "id": "oracle",
+            "name": "The Oracle",
+            "displayName": "Oracle",
+            "role": "Ancient Spirit",
+            "description": "A spirit bound to an ancient timepiece in the workshop. Provides cryptic guidance and reveals hidden truths.",
+            "color": "#dda0dd",
+            "sprites": {
+                "neutral": "assets/images/characters/oracle_neutral.png",
+                "wise": "assets/images/characters/oracle_wise.png",
+                "warning": "assets/images/characters/oracle_warning.png"
+            },
+            "portraits": {
+                "neutral": "assets/images/characters/oracle_portrait_neutral.png"
+            }
+        }
+    ],
+    
+    "narrator": {
+        "id": "narrator",
+        "name": "Narrator",
+        "displayName": "Narrator",
+        "color": "#e8e4d9"
+    }
+}

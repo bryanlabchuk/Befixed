@@ -1,0 +1,99 @@
+{
+    "title": "Befixed",
+    "subtitle": "Magic & Mechanical Repair Shop",
+    "version": "0.1.0",
+    "description": "A narrative puzzle game set in a high fantasy world where magic and machinery intertwine.",
+    
+    "totalChapters": 8,
+    
+    "settings": {
+        "textSpeed": "normal",
+        "textSize": "normal",
+        "masterVolume": 80,
+        "musicVolume": 70,
+        "sfxVolume": 80,
+        "voiceVolume": 90,
+        "screenEffects": true,
+        "dyslexiaFont": false,
+        "highContrast": false,
+        "reduceMotion": false
+    },
+    
+    "saveSlots": 10,
+    "autosave": true,
+    "autosaveInterval": 60000,
+    
+    "world": {
+        "name": "The Realm of Aethermist",
+        "era": "The Age of Restored Wonders",
+        "location": "Gearwright's Hollow",
+        "shopName": "Befixed - Magical & Mechanical Repairs"
+    },
+    
+    "chapters": [
+        {
+            "number": 1,
+            "id": "chapter1",
+            "title": "The Broken Automaton",
+            "description": "A mysterious customer brings in a damaged clockwork companion."
+        },
+        {
+            "number": 2,
+            "id": "chapter2",
+            "title": "Whispers of Magic",
+            "description": "Strange enchantments begin appearing on repaired items."
+        },
+        {
+            "number": 3,
+            "id": "chapter3",
+            "title": "The Clockwork Heart",
+            "description": "The secret behind the automaton reveals itself."
+        },
+        {
+            "number": 4,
+            "id": "chapter4",
+            "title": "Echoes of the Past",
+            "description": "Memories locked within ancient mechanisms come to light."
+        },
+        {
+            "number": 5,
+            "id": "chapter5",
+            "title": "The Enchanted Mechanism",
+            "description": "Magic and machinery must work as one."
+        },
+        {
+            "number": 6,
+            "id": "chapter6",
+            "title": "Shadows and Gears",
+            "description": "Dark forces threaten the balance of the realm."
+        },
+        {
+            "number": 7,
+            "id": "chapter7",
+            "title": "The Final Repair",
+            "description": "Everything comes together for one last challenge."
+        },
+        {
+            "number": 8,
+            "id": "chapter8",
+            "title": "A New Beginning",
+            "description": "The workshop's legacy continues."
+        }
+    ],
+    
+    "puzzleTypes": [
+        "mechanical",
+        "spell-crafting",
+        "diagnosis",
+        "repair-sequence",
+        "resonance"
+    ],
+    
+    "credits": {
+        "gameBy": "Your Studio Name",
+        "specialThanks": [
+            "All the amazing playtesters",
+            "The open source community"
+        ]
+    }
+}

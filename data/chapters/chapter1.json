@@ -1,0 +1,303 @@
+{
+    "id": "chapter1",
+    "number": 1,
+    "title": "The Broken Automaton",
+    "description": "A mysterious customer brings in a damaged clockwork companion, setting events in motion.",
+    
+    "backgrounds": {
+        "workshop": "assets/images/backgrounds/workshop_day.jpg",
+        "workshop_evening": "assets/images/backgrounds/workshop_evening.jpg",
+        "shop_front": "assets/images/backgrounds/shop_front.jpg"
+    },
+    
+    "music": "assets/audio/music/workshop_theme.mp3",
+    "ambience": "assets/audio/sfx/workshop_ambience.mp3",
+    
+    "characters": ["player", "cog", "elara"],
+    
+    "variables": {
+        "playerName": "Artificer",
+        "shopName": "Befixed"
+    },
+    
+    "scenes": [
+        {
+            "id": "intro",
+            "name": "Opening",
+            "background": "workshop",
+            "music": "assets/audio/music/peaceful_morning.mp3",
+            "content": [
+                {
+                    "type": "narration",
+                    "text": "The morning sun filters through the workshop's dusty windows, catching motes of copper dust and magical residue floating in the air."
+                },
+                {
+                    "type": "narration",
+                    "text": "Another day at Befixed - where the impossible becomes merely improbable, and broken dreams are given new life."
+                },
+                {
+                    "type": "character",
+                    "action": "enter",
+                    "character": "cog",
+                    "position": "right",
+                    "animation": "slide-right"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Cog",
+                    "text": "*whirrs excitedly* Good morning, Master! The kettle is ready and I've organized today's repair queue!",
+                    "emotion": "happy"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "You",
+                    "text": "Thank you, Cog. What do we have lined up?",
+                    "emotion": "neutral"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Cog",
+                    "text": "Three music boxes, a self-stirring cauldron with a stuck enchantment, and... *checks notes* ...one \"mystery item\" the customer wouldn't describe.",
+                    "emotion": "excited"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "You",
+                    "text": "A mystery item? That's always interesting.",
+                    "emotion": "thinking"
+                }
+            ]
+        },
+        {
+            "id": "customer_arrives",
+            "name": "The Stranger",
+            "background": "shop_front",
+            "content": [
+                {
+                    "type": "narration",
+                    "text": "The shop bell chimes as the door swings open, letting in a gust of morning air and a cloaked figure."
+                },
+                {
+                    "type": "character",
+                    "action": "enter",
+                    "character": "elara",
+                    "position": "left",
+                    "animation": "fade"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "Are you the artificer? The one who can fix... anything?",
+                    "emotion": "serious"
+                },
+                {
+                    "type": "choice",
+                    "prompt": "How do you respond?",
+                    "options": [
+                        {
+                            "text": "\"I do my best. What seems to be the problem?\"",
+                            "next": "humble_response",
+                            "setVariable": { "name": "playerAttitude", "value": "humble" }
+                        },
+                        {
+                            "text": "\"If it's mechanical or magical, I can fix it. Show me what you've got.\"",
+                            "next": "confident_response",
+                            "setVariable": { "name": "playerAttitude", "value": "confident" }
+                        },
+                        {
+                            "text": "\"Depends on what's broken. Some things are meant to stay that way.\"",
+                            "next": "cautious_response",
+                            "setVariable": { "name": "playerAttitude", "value": "cautious" }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "humble_response",
+            "name": "Humble Response",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "*a slight smile crosses her face* Modesty. I appreciate that. Perhaps you truly are the right person for this.",
+                    "emotion": "hopeful"
+                },
+                {
+                    "type": "flag",
+                    "set": "elara_impressed"
+                }
+            ]
+        },
+        {
+            "id": "confident_response",
+            "name": "Confident Response",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "*raises an eyebrow* Confidence. I hope it's well-founded. This isn't like anything you've seen before.",
+                    "emotion": "serious"
+                }
+            ]
+        },
+        {
+            "id": "cautious_response",
+            "name": "Cautious Response",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "*nods slowly* Wisdom. You understand that some repairs carry... consequences. Good.",
+                    "emotion": "neutral"
+                },
+                {
+                    "type": "flag",
+                    "set": "elara_trusts_player"
+                }
+            ]
+        },
+        {
+            "id": "reveal_automaton",
+            "name": "The Automaton",
+            "background": "workshop",
+            "content": [
+                {
+                    "type": "narration",
+                    "text": "She carefully places a wrapped bundle on your workbench. As the cloth falls away, you see a beautifully crafted automaton - or what's left of one."
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "You",
+                    "text": "This is... remarkable craftsmanship. I've never seen anything like it.",
+                    "emotion": "surprised"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Cog",
+                    "text": "*approaches cautiously* It... it feels familiar somehow. Like an echo of something forgotten.",
+                    "emotion": "worried"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "It belonged to someone very dear to me. Can you restore it?",
+                    "emotion": "hopeful"
+                },
+                {
+                    "type": "narration",
+                    "text": "You examine the automaton closely. The damage is extensive, but there's something else - a faint magical signature pulsing within."
+                },
+                {
+                    "type": "puzzle",
+                    "puzzleId": "ch1_diagnosis",
+                    "config": {
+                        "title": "Initial Diagnosis",
+                        "description": "Examine the automaton to assess the damage."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "post_diagnosis",
+            "name": "After Examination",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "You",
+                    "text": "The mechanical damage can be repaired, but there's something unusual here. This automaton has a soul anchor.",
+                    "emotion": "serious"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "*gasps softly* You can see that? Then... then perhaps there's hope after all.",
+                    "emotion": "hopeful"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Cog",
+                    "text": "A soul anchor? Master, those are forbidden magic! Aren't they?",
+                    "emotion": "worried"
+                },
+                {
+                    "type": "choice",
+                    "prompt": "What do you decide?",
+                    "options": [
+                        {
+                            "text": "\"I'll do it. Everyone deserves a chance at restoration.\"",
+                            "next": "accept_job",
+                            "setFlag": "accepted_repair"
+                        },
+                        {
+                            "text": "\"This is dangerous magic. I need to know more before I agree.\"",
+                            "next": "demand_info",
+                            "setFlag": "demanded_info"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "accept_job",
+            "name": "Accept the Job",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "Thank you. You have no idea what this means to me.",
+                    "emotion": "hopeful"
+                },
+                {
+                    "type": "item",
+                    "add": "broken_automaton",
+                    "quantity": 1
+                },
+                {
+                    "type": "narration",
+                    "text": "And so begins your journey into a mystery older than the workshop itself..."
+                }
+            ]
+        },
+        {
+            "id": "demand_info",
+            "name": "Demand Information",
+            "content": [
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "*sighs* You're right to be cautious. Very well. This automaton... it contains the memories of a great artificer. My grandmother.",
+                    "emotion": "sad"
+                },
+                {
+                    "type": "dialogue",
+                    "speaker": "Elara",
+                    "text": "She bound part of her essence to it before she disappeared. I believe she's still in there, waiting to be found.",
+                    "emotion": "hopeful"
+                },
+                {
+                    "type": "item",
+                    "add": "broken_automaton",
+                    "quantity": 1
+                },
+                {
+                    "type": "flag",
+                    "set": "knows_automaton_secret"
+                }
+            ]
+        }
+    ],
+    
+    "puzzles": [
+        {
+            "id": "ch1_diagnosis",
+            "type": "diagnosis",
+            "integrationPoint": "reveal_automaton"
+        },
+        {
+            "id": "ch1_first_repair",
+            "type": "mechanical",
+            "integrationPoint": "first_repair"
+        }
+    ]
+}

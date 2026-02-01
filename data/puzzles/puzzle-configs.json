@@ -1,0 +1,228 @@
+{
+    "puzzles": [
+        {
+            "id": "ch1_diagnosis",
+            "type": "diagnosis",
+            "title": "Initial Diagnosis",
+            "description": "Examine the automaton to determine what's wrong with it.",
+            "difficulty": "easy",
+            
+            "itemImage": "assets/images/items/broken_automaton.png",
+            "itemName": "Mysterious Automaton",
+            
+            "tools": [
+                { "id": "visual", "name": "Visual Inspection", "icon": "👁️" },
+                { "id": "magical", "name": "Arcane Sense", "icon": "✨" },
+                { "id": "mechanical", "name": "Gear Probe", "icon": "⚙️" }
+            ],
+            
+            "hotspots": [
+                {
+                    "id": "chest",
+                    "x": 45,
+                    "y": 30,
+                    "findings": {
+                        "visual": "Deep scratches across the chest plate, as if from claws or blades.",
+                        "magical": "A faint purple glow emanates from within - the soul anchor!",
+                        "mechanical": "The mainspring housing is intact but the crystal resonator is cracked."
+                    }
+                },
+                {
+                    "id": "head",
+                    "x": 48,
+                    "y": 10,
+                    "findings": {
+                        "visual": "The facial mechanisms are frozen mid-expression.",
+                        "magical": "Memory crystals are present but dormant.",
+                        "mechanical": "The cranial gears are seized with old lubricant."
+                    }
+                },
+                {
+                    "id": "arm_left",
+                    "x": 25,
+                    "y": 45,
+                    "findings": {
+                        "visual": "The arm is detached at the shoulder joint.",
+                        "mechanical": "Ball joint connector is damaged beyond simple repair."
+                    }
+                },
+                {
+                    "id": "core",
+                    "x": 50,
+                    "y": 50,
+                    "findings": {
+                        "magical": "The magical core is unstable - needs realignment.",
+                        "mechanical": "Power transfer conduits are intact."
+                    }
+                }
+            ],
+            
+            "diagnoses": [
+                { "id": "mechanical_only", "name": "Simple mechanical failure" },
+                { "id": "magical_only", "name": "Magical corruption" },
+                { "id": "both_damage", "name": "Combined magical and mechanical damage" },
+                { "id": "soul_anchor", "name": "Soul anchor disruption" }
+            ],
+            
+            "correctDiagnosis": "soul_anchor",
+            
+            "hints": [
+                "Look for something beyond the obvious physical damage.",
+                "The magical signature suggests something unusual about this automaton.",
+                "What could cause both magical and mechanical systems to fail simultaneously?"
+            ],
+            
+            "rewards": [
+                { "type": "flag", "id": "diagnosed_automaton" },
+                { "type": "item", "id": "diagnosis_notes", "quantity": 1 }
+            ]
+        },
+        {
+            "id": "ch1_first_repair",
+            "type": "mechanical",
+            "title": "Arm Restoration",
+            "description": "Repair the automaton's damaged arm assembly.",
+            "difficulty": "easy",
+            
+            "parts": [
+                { "id": "shoulder_joint", "name": "Shoulder Ball Joint", "icon": "🔘", "image": "assets/images/parts/shoulder_joint.png" },
+                { "id": "upper_arm", "name": "Upper Arm Segment", "icon": "📏", "image": "assets/images/parts/upper_arm.png" },
+                { "id": "elbow_gear", "name": "Elbow Gear Assembly", "icon": "⚙️", "image": "assets/images/parts/elbow_gear.png" },
+                { "id": "forearm", "name": "Forearm Segment", "icon": "📏", "image": "assets/images/parts/forearm.png" },
+                { "id": "wrist_pivot", "name": "Wrist Pivot", "icon": "🔄", "image": "assets/images/parts/wrist_pivot.png" },
+                { "id": "hand", "name": "Hand Assembly", "icon": "✋", "image": "assets/images/parts/hand.png" }
+            ],
+            
+            "slots": [
+                { "id": "slot_shoulder", "x": 15, "y": 20, "width": 12, "height": 12, "label": "Shoulder" },
+                { "id": "slot_upper", "x": 20, "y": 35, "width": 10, "height": 20, "label": "Upper Arm" },
+                { "id": "slot_elbow", "x": 25, "y": 55, "width": 12, "height": 12, "label": "Elbow" },
+                { "id": "slot_forearm", "x": 30, "y": 68, "width": 10, "height": 18, "label": "Forearm" },
+                { "id": "slot_wrist", "x": 35, "y": 85, "width": 10, "height": 8, "label": "Wrist" },
+                { "id": "slot_hand", "x": 38, "y": 92, "width": 12, "height": 8, "label": "Hand" }
+            ],
+            
+            "solution": {
+                "slot_shoulder": "shoulder_joint",
+                "slot_upper": "upper_arm",
+                "slot_elbow": "elbow_gear",
+                "slot_forearm": "forearm",
+                "slot_wrist": "wrist_pivot",
+                "slot_hand": "hand"
+            },
+            
+            "instructions": [
+                "Attach the shoulder ball joint to the torso connector",
+                "Slide the upper arm segment onto the shoulder",
+                "Connect the elbow gear assembly",
+                "Attach the forearm segment",
+                "Install the wrist pivot mechanism",
+                "Finally, connect the hand assembly"
+            ],
+            
+            "hints": [
+                "Start from the shoulder and work your way down.",
+                "The elbow gear connects the upper and lower arm.",
+                "Make sure each piece clicks into place before moving on."
+            ],
+            
+            "rewards": [
+                { "type": "flag", "id": "repaired_arm" },
+                { "type": "variable", "name": "repair_skill", "value": 1 }
+            ]
+        },
+        {
+            "id": "ch2_spell_mix",
+            "type": "spell-crafting",
+            "title": "Awakening Elixir",
+            "description": "Brew the enchantment to reactivate dormant magical crystals.",
+            "difficulty": "normal",
+            
+            "recipeName": "Crystal Awakening Elixir",
+            "recipeHint": "Moonwater begins the dream, starlight reveals, and sunfire awakens.",
+            
+            "ingredients": [
+                { "id": "moonwater", "name": "Moonwater", "icon": "🌙", "color": "#c0d4f5" },
+                { "id": "starlight_dust", "name": "Starlight Dust", "icon": "✨", "color": "#fffacd" },
+                { "id": "sunfire_essence", "name": "Sunfire Essence", "icon": "☀️", "color": "#ffa500" },
+                { "id": "shadow_drop", "name": "Shadow Drop", "icon": "🖤", "color": "#483d8b" },
+                { "id": "crystal_shard", "name": "Crystal Shard", "icon": "💎", "color": "#e0ffff" }
+            ],
+            
+            "recipe": ["moonwater", "starlight_dust", "sunfire_essence"],
+            "maxIngredients": 4,
+            
+            "hints": [
+                "Read the recipe hint carefully - it describes the order.",
+                "Not all ingredients are needed for this particular spell.",
+                "The sequence matters as much as the ingredients."
+            ],
+            
+            "rewards": [
+                { "type": "item", "id": "awakening_elixir", "quantity": 1 }
+            ]
+        },
+        {
+            "id": "ch3_sequence",
+            "type": "repair-sequence",
+            "title": "Heart Synchronization",
+            "description": "Match the rhythm to synchronize the clockwork heart.",
+            "difficulty": "normal",
+            
+            "sequence": ["⚙️", "💫", "⚡", "💧"],
+            "displayTime": 1200,
+            "inputTime": 6000,
+            "maxRounds": 3,
+            
+            "actions": [
+                { "id": "gear", "icon": "⚙️", "label": "Turn Gear" },
+                { "id": "magic", "icon": "💫", "label": "Channel Magic" },
+                { "id": "spark", "icon": "⚡", "label": "Power Pulse" },
+                { "id": "oil", "icon": "💧", "label": "Lubricate" }
+            ],
+            
+            "hints": [
+                "Watch the full sequence before attempting to repeat it.",
+                "Each round adds one more step to remember.",
+                "Listen for audio cues to help with timing."
+            ],
+            
+            "rewards": [
+                { "type": "flag", "id": "heart_synchronized" }
+            ]
+        },
+        {
+            "id": "ch5_resonance",
+            "type": "resonance",
+            "title": "Harmonic Alignment",
+            "description": "Tune the magical frequencies to restore the enchantment matrix.",
+            "difficulty": "hard",
+            
+            "targetPattern": [440, 523, 659, 784],
+            "tolerance": 15,
+            
+            "dials": [
+                { "id": "frequency", "label": "Frequency", "min": 200, "max": 1000, "step": 5 },
+                { "id": "amplitude", "label": "Amplitude", "min": 0, "max": 100, "step": 5 },
+                { "id": "phase", "label": "Phase", "min": 0, "max": 360, "step": 10 }
+            ],
+            
+            "hints": [
+                "Play the target note and try to match it by ear.",
+                "Small adjustments work better than large sweeps.",
+                "The notes form a musical chord - they should sound harmonious together."
+            ],
+            
+            "rewards": [
+                { "type": "flag", "id": "matrix_restored" },
+                { "type": "item", "id": "harmonic_crystal", "quantity": 1 }
+            ]
+        }
+    ],
+    
+    "puzzleDefaults": {
+        "maxAttempts": 3,
+        "maxHints": 3,
+        "timeBonus": true
+    }
+}
